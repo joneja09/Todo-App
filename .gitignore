@@ -30,11 +30,11 @@ frontend/.env*
 frontend-vue/.env*
 
 # .NET backend
-backend/TodoApp/bin/
-backend/TodoApp/obj/
+backend/**/bin/
+backend/**/obj/
 backend/TodoApp/*.csproj.user
-backend/TodoApp/*.sln
-backend/TodoApp/.vs/
+backend/**/.vs/
+**/.vs/
 *.suo
 *.user
 *.userosscache
