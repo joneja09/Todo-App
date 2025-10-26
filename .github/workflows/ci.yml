@@ -1,0 +1,153 @@
+name: CI/CD Build, Test, and Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+      - name: Restore dependencies
+        run: dotnet restore backend/TodoApp.sln
+      - name: Build
+        run: dotnet build backend/TodoApp.sln --no-restore
+      - name: Test
+        run: dotnet test backend/TodoApp.sln --no-build --verbosity normal
+
+  build-frontend-react:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Yarn
+        run: npm install -g yarn
+      - name: Install dependencies
+        working-directory: frontend
+        run: yarn install --frozen-lockfile
+      - name: Build
+        working-directory: frontend
+        run: yarn build
+      - name: Lint
+        working-directory: frontend
+        run: yarn lint || true
+
+  build-frontend-vue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Yarn
+        run: npm install -g yarn
+      - name: Install dependencies
+        working-directory: frontend-vue
+        run: yarn install --frozen-lockfile
+      - name: Build
+        working-directory: frontend-vue
+        run: yarn build
+      - name: Lint
+        working-directory: frontend-vue
+        run: yarn lint || true
+
+  deploy-backend-azure:
+    needs: [build-backend]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+      - name: Restore dependencies
+        run: dotnet restore backend/TodoApp.sln
+      - name: Build
+        run: dotnet build backend/TodoApp.sln --configuration Release --no-restore
+      - name: Publish
+        run: dotnet publish backend/TodoApp/TodoApp.csproj --configuration Release --output ./output --no-build
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
+          package: ./output
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+
+  deploy-frontend-react-vercel:
+    needs: [build-frontend-react]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Yarn
+        run: npm install -g yarn
+      - name: Install dependencies
+        working-directory: frontend
+        run: yarn install --frozen-lockfile
+      - name: Build
+        working-directory: frontend
+        run: yarn build
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_REACT }}
+          working-directory: frontend
+          vercel-args: "--prod"
+
+  deploy-frontend-vue-vercel:
+    needs: [build-frontend-vue]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Yarn
+        run: npm install -g yarn
+      - name: Install dependencies
+        working-directory: frontend-vue
+        run: yarn install --frozen-lockfile
+      - name: Build
+        using: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Yarn
+        run: npm install -g yarn
+      - name: Install dependencies
+        working-directory: frontend-vue
+        run: yarn install --frozen-lockfile
+      - name: Build
+        working-directory: frontend-vue
+        run: yarn build
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_VUE }}
+          working-directory: frontend-vue
+          vercel-args: "--prod"

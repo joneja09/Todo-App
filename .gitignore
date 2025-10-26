@@ -1,0 +1,70 @@
+# Node.js and Yarn (for frontend and frontend-vue)
+node_modules/
+.pnp/
+.pnp.js
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+!.yarnrc.yml
+yarn-error.log
+yarn.lock
+
+# Build outputs (React and Vue)
+dist/
+build/
+frontend/build/
+frontend-vue/dist/
+
+# Vite cache (Vue frontend)
+frontend-vue/.vite/
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+frontend/.env*
+frontend-vue/.env*
+
+# .NET backend
+backend/TodoApp/bin/
+backend/TodoApp/obj/
+backend/TodoApp/*.csproj.user
+backend/TodoApp/*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.csproj.DotSettings
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Testing and coverage
+coverage/
+*.lcov
+test-results/
+
+# Miscellaneous
+*.cache
+*.bak
+*.tmp
+temp/
+tmp/

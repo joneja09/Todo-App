@@ -1,0 +1,82 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #10b981;
+  --secondary-hover: #059669;
+  --neutral-color: #f1f5f9;
+  --text-color: #1f2937;
+  --border-color: #d1d5db;
+  --error-color: #ef4444;
+  --error-hover: #dc2626;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --padding: 16px;
+  --card-background: white;
+  --item-background: #f9fafb;
+  --item-hover-background: #e5e7eb;
+  --input-background: white;
+  --edit-color: #3b82f6;
+  --edit-hover: #2563eb;
+  --cancel-color: #6b7280;
+  --cancel-hover: #4b5563;
+  --logout-color: #ef4444;
+  --logout-hover: #dc2626;
+  --theme-toggle-color: transparent;
+  --theme-toggle-hover: #d1d5db;
+}
+
+body.dark {
+  --neutral-color: #1f2937;
+  --text-color: #f9fafb;
+  --border-color: #4b5563;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  --card-background: #2d3748;
+  --item-background: #374151;
+  --item-hover-background: #4b5563;
+  --input-background: #374151;
+  --theme-toggle-hover: #4b5563;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--neutral-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+input, select {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--input-background);
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 12px;
+  border: none;
+  border-radius: var(--border-radius);
+  color: white;
+  transition: all 0.2s ease;
+}

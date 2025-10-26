@@ -1,0 +1,428 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\controllers\\todolistscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\controllers\\todolistscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\entities\\todolist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\entities\\todolist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\dtos\\todolistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\dtos\\todolistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\services\\todolistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\services\\todolistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\repositories\\todolistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\repositories\\todolistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\responses\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\responses\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\todoapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\todoapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\dtos\\taskdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\dtos\\taskdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55555555-5555-5555-5555-555555555555}|TodoApp.Tests\\TodoApp.Tests.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp.tests\\tests\\todolistservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55555555-5555-5555-5555-555555555555}|TodoApp.Tests\\TodoApp.Tests.csproj|solutionrelative:todoapp.tests\\tests\\todolistservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55555555-5555-5555-5555-555555555555}|TodoApp.Tests\\TodoApp.Tests.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp.tests\\tests\\taskservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55555555-5555-5555-5555-555555555555}|TodoApp.Tests\\TodoApp.Tests.csproj|solutionrelative:todoapp.tests\\tests\\taskservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\entities\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\entities\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\persistence\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\persistence\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\repositories\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\repositories\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\interfaces\\itodolistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\interfaces\\itodolistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\interfaces\\itaskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\interfaces\\itaskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55555555-5555-5555-5555-555555555555}|TodoApp.Tests\\TodoApp.Tests.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp.tests\\tests\\todolistscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55555555-5555-5555-5555-555555555555}|TodoApp.Tests\\TodoApp.Tests.csproj|solutionrelative:todoapp.tests\\tests\\todolistscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55555555-5555-5555-5555-555555555555}|TodoApp.Tests\\TodoApp.Tests.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp.tests\\tests\\taskscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55555555-5555-5555-5555-555555555555}|TodoApp.Tests\\TodoApp.Tests.csproj|solutionrelative:todoapp.tests\\tests\\taskscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55555555-5555-5555-5555-555555555555}|TodoApp.Tests\\TodoApp.Tests.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp.tests\\tests\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55555555-5555-5555-5555-555555555555}|TodoApp.Tests\\TodoApp.Tests.csproj|solutionrelative:todoapp.tests\\tests\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|c:\\users\\jeffe\\source\\ezra\\attempt2\\todoapp\\backend\\todoapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44444444-4444-4444-4444-444444444444}|TodoApp\\TodoApp.csproj|solutionrelative:todoapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 13,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TodoApp",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\TodoApp.csproj",
+              "RelativeDocumentMoniker": "TodoApp\\TodoApp.csproj",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\TodoApp.csproj",
+              "RelativeToolTip": "TodoApp\\TodoApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-26T03:41:23.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\appsettings.json",
+              "RelativeDocumentMoniker": "TodoApp\\appsettings.json",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\appsettings.json",
+              "RelativeToolTip": "TodoApp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-26T03:36:39.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\DTOs\\UserDto.cs",
+              "RelativeDocumentMoniker": "TodoApp\\DTOs\\UserDto.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\DTOs\\UserDto.cs",
+              "RelativeToolTip": "TodoApp\\DTOs\\UserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:36:21.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TodoListDto.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\DTOs\\TodoListDto.cs",
+              "RelativeDocumentMoniker": "TodoApp\\DTOs\\TodoListDto.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\DTOs\\TodoListDto.cs",
+              "RelativeToolTip": "TodoApp\\DTOs\\TodoListDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:36:18.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TaskDto.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\DTOs\\TaskDto.cs",
+              "RelativeDocumentMoniker": "TodoApp\\DTOs\\TaskDto.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\DTOs\\TaskDto.cs",
+              "RelativeToolTip": "TodoApp\\DTOs\\TaskDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:36:12.319Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TodoList.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Entities\\TodoList.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Entities\\TodoList.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Entities\\TodoList.cs",
+              "RelativeToolTip": "TodoApp\\Entities\\TodoList.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:35:59.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "TaskItem.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Entities\\TaskItem.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Entities\\TaskItem.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Entities\\TaskItem.cs",
+              "RelativeToolTip": "TodoApp\\Entities\\TaskItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:35:50.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Persistence\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Persistence\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Persistence\\AppDbContext.cs",
+              "RelativeToolTip": "TodoApp\\Persistence\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:35:25.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ITodoListRepository.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Interfaces\\ITodoListRepository.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Interfaces\\ITodoListRepository.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Interfaces\\ITodoListRepository.cs",
+              "RelativeToolTip": "TodoApp\\Interfaces\\ITodoListRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:34:25.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ITaskRepository.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Interfaces\\ITaskRepository.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Interfaces\\ITaskRepository.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Interfaces\\ITaskRepository.cs",
+              "RelativeToolTip": "TodoApp\\Interfaces\\ITaskRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:33:39.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "TaskRepository.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Repositories\\TaskRepository.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Repositories\\TaskRepository.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Repositories\\TaskRepository.cs",
+              "RelativeToolTip": "TodoApp\\Repositories\\TaskRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:33:19.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TodoListRepository.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Repositories\\TodoListRepository.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Repositories\\TodoListRepository.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Repositories\\TodoListRepository.cs",
+              "RelativeToolTip": "TodoApp\\Repositories\\TodoListRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAMwBgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:32:55.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Responses\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Responses\\ApiResponse.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Responses\\ApiResponse.cs",
+              "RelativeToolTip": "TodoApp\\Responses\\ApiResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:32:35.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TaskService.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Services\\TaskService.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Services\\TaskService.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Services\\TaskService.cs",
+              "RelativeToolTip": "TodoApp\\Services\\TaskService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwCcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:32:14.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TodoListService.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Services\\TodoListService.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Services\\TodoListService.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Services\\TodoListService.cs",
+              "RelativeToolTip": "TodoApp\\Services\\TodoListService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:31:53.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TodoListServiceTests.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp.Tests\\Tests\\TodoListServiceTests.cs",
+              "RelativeDocumentMoniker": "TodoApp.Tests\\Tests\\TodoListServiceTests.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp.Tests\\Tests\\TodoListServiceTests.cs",
+              "RelativeToolTip": "TodoApp.Tests\\Tests\\TodoListServiceTests.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAcwCEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:31:34.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TodoListsControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp.Tests\\Tests\\TodoListsControllerTests.cs",
+              "RelativeDocumentMoniker": "TodoApp.Tests\\Tests\\TodoListsControllerTests.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp.Tests\\Tests\\TodoListsControllerTests.cs",
+              "RelativeToolTip": "TodoApp.Tests\\Tests\\TodoListsControllerTests.cs",
+              "ViewState": "AgIAAAYAAACAaWZmZmYUwBwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:31:16.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TaskServiceTests.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp.Tests\\Tests\\TaskServiceTests.cs",
+              "RelativeDocumentMoniker": "TodoApp.Tests\\Tests\\TaskServiceTests.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp.Tests\\Tests\\TaskServiceTests.cs",
+              "RelativeToolTip": "TodoApp.Tests\\Tests\\TaskServiceTests.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAcwCEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:30:53.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "TasksControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp.Tests\\Tests\\TasksControllerTests.cs",
+              "RelativeDocumentMoniker": "TodoApp.Tests\\Tests\\TasksControllerTests.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp.Tests\\Tests\\TasksControllerTests.cs",
+              "RelativeToolTip": "TodoApp.Tests\\Tests\\TasksControllerTests.cs",
+              "ViewState": "AgIAAAgAAACAZ2ZmZmYUwB4AAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:29:00.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AuthControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp.Tests\\Tests\\AuthControllerTests.cs",
+              "RelativeDocumentMoniker": "TodoApp.Tests\\Tests\\AuthControllerTests.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp.Tests\\Tests\\AuthControllerTests.cs",
+              "RelativeToolTip": "TodoApp.Tests\\Tests\\AuthControllerTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:28:54.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "TodoApp\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAiwFcAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:21:46.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TodoListsController.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Controllers\\TodoListsController.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Controllers\\TodoListsController.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Controllers\\TodoListsController.cs",
+              "RelativeToolTip": "TodoApp\\Controllers\\TodoListsController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAA5wEYAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:21:25.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TasksController.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Controllers\\TasksController.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Controllers\\TasksController.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Controllers\\TasksController.cs",
+              "RelativeToolTip": "TodoApp\\Controllers\\TasksController.cs",
+              "ViewState": "AgIAABUAAAAA/f////8VwCYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:20:55.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Program.cs",
+              "RelativeDocumentMoniker": "TodoApp\\Program.cs",
+              "ToolTip": "C:\\Users\\jeffe\\source\\Ezra\\Attempt2\\TodoApp\\backend\\TodoApp\\Program.cs",
+              "RelativeToolTip": "TodoApp\\Program.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T03:20:17.067Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

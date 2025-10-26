@@ -1,0 +1,55 @@
+/* Main form container */
+.task-form {
+  background: var(--card-background);
+  padding: 0.75rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+/* Form layout */
+.form-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form-group input {
+  flex: 1;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+/* Form button */
+.form-group button {
+  background: var(--secondary-color);
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  min-width: 2.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: var(--border-radius);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-group button:hover {
+  background: var(--secondary-hover);
+}
+
+/* Error messaging */
+.error-message {
+  color: var(--error-color);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .task-form {
+    padding: 0.5rem;
+  }
+}
