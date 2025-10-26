@@ -34,6 +34,7 @@ backend/TodoApp/bin/
 backend/TodoApp/obj/
 backend/TodoApp/*.csproj.user
 backend/TodoApp/*.sln
+backend/TodoApp/.vs/
 *.suo
 *.user
 *.userosscache
