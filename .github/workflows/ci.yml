@@ -132,7 +132,7 @@ jobs:
         working-directory: frontend-vue
         run: yarn install --frozen-lockfile
       - name: Build
-        using: actions/setup-node@v4
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
       - name: Install Yarn
