@@ -14,7 +14,9 @@
     "noEmit": false,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "composite": true
+    "composite": true,
+    "outDir": "./dist", // or a specific directory for build output
+    "tsBuildInfoFile": "./dist/.tsbuildinfo" // Explicitly define location
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.json" }]
