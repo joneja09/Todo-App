@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Routing;
@@ -6,9 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Text;
 using TodoApp.Interfaces;
 using TodoApp.Persistence;
 using TodoApp.Repositories;
@@ -50,9 +46,6 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
         policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-        //policy.WithOrigins("https://*.vercel.app", "http://localhost:3000", "http://localhost:5173")
-        //      .AllowAnyHeader()
-        //      .AllowAnyMethod());
 });
 
 var app = builder.Build();

@@ -5,17 +5,17 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using TodoApp.DTOs;
+using TodoApp.Interfaces;
 using TodoApp.Responses;
-using TodoApp.Services;
 
 namespace TodoApp.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
 [Authorize("api")]
-public class TodoListsController(TodoListService todoListService) : ControllerBase
+public class TodoListsController(ITodoListService todoListService) : ControllerBase
 {
-    private readonly TodoListService _todoListService = todoListService;
+    private readonly ITodoListService _todoListService = todoListService;
 
     /// <summary>
     /// Retrieves all to-do lists associated with the currently authenticated user.
@@ -46,19 +46,27 @@ public class TodoListsController(TodoListService todoListService) : ControllerBa
         return list == null ? ApiResponse<TodoListDto>.Error("Not found") : ApiResponse<TodoListDto>.Ok(list);
     }
 
+    /// <summary>
+    /// Creates a new to-do list for the authenticated user.
+    /// </summary>
+    /// <remarks>The authenticated user's ID is extracted from the claims to associate the to-do list with the
+    /// correct user.</remarks>
+    /// <param name="dto">The data transfer object containing the details of the to-do list to be created.</param>
+    /// <returns>An <see cref="ApiResponse{T}"/> containing the created to-do list object if the operation is successful; 
+    /// otherwise, an error response with the exception message.</returns>
     [HttpPost]
     [Route("")]
-    public async Task<ApiResponse<object>> Post([FromBody] TodoListDto dto)
+    public async Task<ApiResponse<TodoListDto?>> Post([FromBody] TodoListDto dto)
     {
         try
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
             var list = await _todoListService.AddAsync(dto, userId);
-            return ApiResponse<object>.Ok(list);
+            return ApiResponse<TodoListDto?>.Ok(list);
         }
         catch (Exception ex)
         {
-            return ApiResponse<object>.Error(ex.Message);
+            return ApiResponse<TodoListDto?>.Error(ex.Message);
         }
     }
 

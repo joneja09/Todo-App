@@ -2,20 +2,26 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using TodoApp.DTOs;
+using TodoApp.Interfaces;
 using TodoApp.Responses;
-using TodoApp.Services;
 
 namespace TodoApp.Controllers;
 
+/// <summary>
+/// Provides endpoints for managing tasks within a to-do list.
+/// </summary>
+/// <remarks>This controller exposes CRUD operations for tasks, including retrieving tasks by their ID or list ID,
+/// creating new tasks, updating existing tasks, and deleting tasks. All endpoints require authorization  with the "api"
+/// policy.</remarks>
+/// <param name="taskService"></param>
 [ApiController]
 [Route("api/[controller]")]
 [Authorize("api")]
-public class TasksController(TaskService taskService) : ControllerBase
+public class TasksController(ITaskService taskService) : ControllerBase
 {
-    private readonly TaskService _taskService = taskService;
+    private readonly ITaskService _taskService = taskService;
 
     [HttpGet("list/{todoListId}")]
     public async Task<ApiResponse<IEnumerable<TaskDto>>> GetAll(int todoListId)
@@ -32,31 +38,31 @@ public class TasksController(TaskService taskService) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ApiResponse<object>> Post([FromBody] TaskDto dto)
+    public async Task<ApiResponse<TaskDto?>> Post([FromBody] TaskDto dto)
     {
         try
         {
-            await _taskService.AddAsync(dto);
-            return ApiResponse<object>.Ok(null!);
+            var task = await _taskService.AddAsync(dto);
+            return ApiResponse<TaskDto?>.Ok(task);
         }
         catch (Exception ex)
         {
-            return ApiResponse<object>.Error(ex.Message);
+            return ApiResponse<TaskDto?>.Error(ex.Message);
         }
     }
 
     [HttpPut("{id}")]
-    public async Task<ApiResponse<object>> Put(int id, [FromBody] TaskDto dto)
+    public async Task<ApiResponse<TaskDto?>> Put(int id, [FromBody] TaskDto dto)
     {
         try
         {
             dto.Id = id;
-            await _taskService.UpdateAsync(dto);
-            return ApiResponse<object>.Ok(null!);
+            var task = await _taskService.UpdateAsync(dto);
+            return ApiResponse<TaskDto?>.Ok(task);
         }
         catch (Exception ex)
         {
-            return ApiResponse<object>.Error(ex.Message);
+            return ApiResponse<TaskDto?>.Error(ex.Message);
         }
     }
 

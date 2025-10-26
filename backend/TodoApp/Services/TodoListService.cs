@@ -8,7 +8,15 @@ using TodoApp.Interfaces;
 
 namespace TodoApp.Services;
 
-public class TodoListService(ITodoListRepository todoListRepository)
+/// <summary>
+/// Provides operations for managing to-do lists, including retrieving, adding, updating, and deleting lists.
+/// </summary>
+/// <remarks>This service acts as an intermediary between the application and the underlying repository,  ensuring
+/// that to-do lists are managed in a consistent and reliable manner. It supports operations  such as retrieving all
+/// lists for a specific user, retrieving a list by its ID, adding new lists,  updating existing lists, and deleting
+/// lists.</remarks>
+/// <param name="todoListRepository"></param>
+public class TodoListService(ITodoListRepository todoListRepository) : ITodoListService
 {
     private readonly ITodoListRepository _todoListRepository = todoListRepository;
 
@@ -37,6 +45,7 @@ public class TodoListService(ITodoListRepository todoListRepository)
     public async Task<TodoListDto> UpdateAsync(TodoListDto dto)
     {
         var list = await _todoListRepository.GetByIdAsync(dto.Id);
+        
         if (list == null) throw new KeyNotFoundException("List not found");
 
         list.Name = dto.Name;

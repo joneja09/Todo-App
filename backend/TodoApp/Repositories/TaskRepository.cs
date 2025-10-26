@@ -8,6 +8,12 @@ using TodoApp.Persistence;
 
 namespace TodoApp.Repositories;
 
+/// <summary>
+/// Provides methods for managing and accessing task items in the data store.
+/// </summary>
+/// <remarks>This repository is responsible for performing CRUD operations on <see cref="TaskItem"/> entities. It
+/// interacts with the underlying database context to retrieve, add, update, and delete tasks.</remarks>
+/// <param name="context"></param>
 public class TaskRepository(AppDbContext context) : ITaskRepository
 {
     private readonly AppDbContext _context = context;

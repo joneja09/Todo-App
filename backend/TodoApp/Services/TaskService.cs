@@ -8,7 +8,14 @@ using TodoApp.Interfaces;
 
 namespace TodoApp.Services;
 
-public class TaskService(ITaskRepository taskRepository)
+/// <summary>
+/// Provides operations for managing tasks, including retrieving, adding, updating, and deleting tasks.
+/// </summary>
+/// <remarks>This service acts as an abstraction layer for task-related operations, interacting with the
+/// underlying data repository to perform CRUD operations. It ensures that tasks are properly validated and mapped
+/// between the data model and the DTO (Data Transfer Object) used by the application.</remarks>
+/// <param name="taskRepository"></param>
+public class TaskService(ITaskRepository taskRepository) : ITaskService
 {
     private readonly ITaskRepository _taskRepository = taskRepository;
 
@@ -24,15 +31,17 @@ public class TaskService(ITaskRepository taskRepository)
         return task == null ? null : new TaskDto { Id = task.Id, Title = task.Title, Description = task.Description, IsCompleted = task.IsCompleted, TodoListId = task.TodoListId };
     }
 
-    public async Task AddAsync(TaskDto dto)
+    public async Task<TaskDto> AddAsync(TaskDto dto)
     {
         if (string.IsNullOrEmpty(dto.Title)) throw new ArgumentException("Title required");
 
         var task = new TaskItem { Title = dto.Title, Description = dto.Description, TodoListId = dto.TodoListId };
         await _taskRepository.AddAsync(task);
+
+        return new TaskDto { Id = task.Id, Title = task.Title, Description = task.Description, IsCompleted = task.IsCompleted, TodoListId = task.TodoListId };
     }
 
-    public async Task UpdateAsync(TaskDto dto)
+    public async Task<TaskDto> UpdateAsync(TaskDto dto)
     {
         var task = await _taskRepository.GetByIdAsync(dto.Id);
         if (task == null) throw new KeyNotFoundException("Task not found");
@@ -42,6 +51,8 @@ public class TaskService(ITaskRepository taskRepository)
         task.IsCompleted = dto.IsCompleted;
         task.TodoListId = dto.TodoListId;
         await _taskRepository.UpdateAsync(task);
+
+        return new TaskDto { Id = task.Id, Title = task.Title, Description = task.Description, IsCompleted = task.IsCompleted, TodoListId = task.TodoListId };
     }
 
     public async Task DeleteAsync(int id)

@@ -8,6 +8,14 @@ using TodoApp.Persistence;
 
 namespace TodoApp.Repositories;
 
+/// <summary>
+/// Provides methods for managing and accessing to-do lists in the data store.
+/// </summary>
+/// <remarks>This repository is responsible for performing CRUD (Create, Read, Update, Delete) operations  on <see
+/// cref="TodoList"/> entities. It interacts with the underlying database context to  retrieve, add, update, and delete
+/// to-do lists. The repository is designed to work with  user-specific to-do lists, allowing operations to be scoped to
+/// a specific user where applicable.</remarks>
+/// <param name="context"></param>
 public class TodoListRepository(AppDbContext context) : ITodoListRepository
 {
     private readonly AppDbContext _context = context;
