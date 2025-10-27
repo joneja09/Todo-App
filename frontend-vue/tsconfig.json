@@ -18,6 +18,5 @@
     "outDir": "./dist", // or a specific directory for build output
     "tsBuildInfoFile": "./dist/.tsbuildinfo" // Explicitly define location
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.json" }]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
