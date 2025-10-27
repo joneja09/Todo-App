@@ -4,7 +4,7 @@ A task management application with a .NET 9 backend (single project, Microsoft I
 
 ## Project Structure
 
-- `backend/TodoApp/`: .NET 9 API with folders structuring represents the Onion Architecture, using ASP.NET Core Identity and EF Core with SQLite. Dependency injection is 
+- `backend/TodoApp/`: .NET 9 API with folders structuring represents the Onion Architecture, using ASP.NET Core Identity and EF Core with SQLite.
 - `backend/TodoApp.Tests/`: xUnit tests for services and controllers.
 - `frontend/`: React frontend with TypeScript, supports multiple to-do lists.
 - `frontend-vue/`: Vue 3 frontend with TypeScript, supports multiple to-do lists.
@@ -57,7 +57,7 @@ A task management application with a .NET 9 backend (single project, Microsoft I
 
 - **Frontend (Vercel)**:
   - Import `frontend` and `frontend-vue` to Vercel as separate projects.
-  - Push to `main` deploys the frontend projects.  Vercel handles this with reference to the repository.
+  - Push to `main` deploys the frontend projects.  Vercel handles this automatically with reference to the repository.
   - _Note_: Can be found at: (React)`https://joneja09-todo-app.vercel.app/` and (Vue)`https://joneja09-todo-app-vue.vercel.app/`
 
 ## Usage
@@ -85,3 +85,86 @@ A task management application with a .NET 9 backend (single project, Microsoft I
 - Implement task sharing or team capability, notifications (WebSockets).
 - Add Redis Caching/Output Caching for high scale.
 - Containerize with Docker for consistent contained deployment.
+
+## Backend Architecture
+
+### Onion Architecture
+Onion Architecture provides clear separation of concerns and maintains dependency inversion, even within a single .NET project.
+
+### Key Benefits:
+1. **Dependency Inversion:** The core business logic (Services) depends only on interfaces, not concrete implementations. For example, TaskService depends on ITaskRepository, not the concrete TaskRepository class.
+
+2. **Testability:** Each layer can be easily unit tested in isolation. The Services layer contains pure business logic without infrastructure dependencies, making it highly testable.
+
+3. **Maintainability:** The folder structure clearly represents the architectural layers:
+    - Entities/ - Core domain models
+    - Interfaces/ - Contracts/abstractions
+    - Services/ - Business logic layer
+    - Repositories/ - Data access layer
+    - Controllers/ - Presentation layer
+    - DTOs/ - Data transfer contracts
+
+4. **Flexibility:** If there is a need to switch from SQLite to PostgreSQL or add caching, only the Repository implementations need to change without touching business logic.
+
+### Trade-offs:
+- **Single Project Approach:** Instead of multiple projects for each layer, I used folder organization within one project for simplicity and faster development cycles.
+- **Simplified Domain:** For this Todo app, complex domain logic wasn't needed, but the architecture supports future complexity.
+- **Direct DI Registration:** Used simple dependency injection in Program.cs rather than more complex registration patterns (Extension Methods, Assembly Scanning, etc)
+
+### Why Not Other Architectures:
+- **N-Layer Architecture:** Would create tight coupling between layers and make testing harder
+- **Clean Architecture:** Similar benefits but more complex setup - Onion Architecture provides the right balance for this scope
+- **Microservices:** Overkill for a Todo app's complexity level
+
+This architecture ensures the application is maintainable, testable, and ready to scale as requirements grow, while keeping the implementation pragmatic for the current scope.
+
+### Technical Implementation Details:
+
+**Data Access Layer:**
+- **Entity Framework Core**: Code-first approach with SQLite provider for development simplicity
+- **Identity Integration**: Extends `IdentityDbContext<IdentityUser<int>, IdentityRole<int>, int>` for user management
+- **Relationship Mapping**: Explicit foreign key relationships using Fluent API in `OnModelCreating()`
+- **Async Operations**: All data operations use async/await pattern for better performance
+
+**API Design Patterns:**
+- **Consistent Response Format**: Standardized `ApiResponse<T>` wrapper for all endpoints with success/error handling
+- **DTO Pattern**: Clean separation between domain entities and API contracts (TaskDto, TodoListDto, UserDto)
+- **RESTful Conventions**: Proper HTTP methods and status codes following REST principles
+- **Authorization Policy**: Custom "api" policy using Bearer token authentication scheme
+
+**Cross-Cutting Concerns:**
+- **CORS**: Configured for cross-origin requests to support frontend applications
+- **Swagger/OpenAPI**: Integrated API documentation available at `/swagger` in development
+- **Database Migrations**: Automatic migration application on startup for deployment simplicity
+- **Dependency Injection**: Constructor injection with scoped lifetimes for services and repositories
+
+**Security & Authentication:**
+- **ASP.NET Core Identity**: Built-in user management with customized integer primary keys
+- **Bearer Token Authentication**: JWT-based stateless authentication for SPA compatibility
+- **Authorization Attributes**: Controller-level authorization with policy-based access control
+
+## Frontend Architecture
+
+Both frontends implement the same feature set with different frameworks and patterns:
+
+**React Frontend (`frontend/`):**
+- **Tech Stack**: React 18, TypeScript, Create React App, Axios
+- **State Management**: React hooks (useState) with localStorage persistence
+- **Styling**: Custom CSS with dark/light theme support
+- **Notifications**: react-hot-toast for user feedback
+- **Structure**: Component-based architecture with shared API service layer
+
+**Vue Frontend (`frontend-vue/`):**
+- **Tech Stack**: Vue 3 Composition API, TypeScript, Vite, Axios
+- **State Management**: Pinia stores (`useAuthStore`, `useTaskStore`) with centralized state
+- **Styling**: Custom CSS with dark/light theme support (shared styles with React)
+- **Notifications**: vue-toastification for user feedback
+- **Structure**: Composition API with reactive stores for state management
+
+**Shared Features:**
+- Bearer token authentication with automatic header injection
+- Dark/light theme toggle with localStorage persistence
+- Responsive design with FontAwesome icons
+- Complete CRUD operations for TodoLists and Tasks
+- Real-time state synchronization with backend API
+- Environment-based API URL configuration (`.env` files)
