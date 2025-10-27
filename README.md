@@ -31,15 +31,15 @@ A task management application with a .NET 9 backend (single project, Microsoft I
 
 1. Navigate to `frontend`.
 2. Run `yarn install`.
-3. Run `yarn start` (starts at `http://localhost:3000`).
-4. Set `REACT_APP_API_URL=https://localhost:5001` in `frontend/.env`.
+3. Create and Set `REACT_APP_API_URL=https://localhost:58273` in `frontend/.env`.
+4. Run `yarn start` (starts at `http://localhost:3000`).
 
 ### Frontend (Vue)
 
 1. Navigate to `frontend-vue`.
 2. Run `yarn install`.
-3. Run `yarn dev` (starts at `http://localhost:5173`).
-4. Set `VITE_API_URL=https://localhost:5001/api` in `frontend-vue/.env`.
+3. Create and Set `VITE_API_URL=https://localhost:58273` in `frontend-vue/.env`.
+4. Run `yarn dev` (starts at `http://localhost:5173`).
 
 ### Tests
 
