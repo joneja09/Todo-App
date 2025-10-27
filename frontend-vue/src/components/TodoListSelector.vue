@@ -46,8 +46,11 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { useToast } from 'vue-toastification';
 import { useTaskStore } from '../stores/auth';
 import './styles/TodoListSelector.css';
+
+const toast = useToast();
 
 const taskStore = useTaskStore();
 const newListName = ref('');
@@ -57,20 +60,37 @@ const editName = ref('');
 onMounted(() => taskStore.fetchTodoLists());
 
 const handleAdd = async () => {
-  if (!newListName.value) return;
-  await taskStore.addTodoList(newListName.value);
-  newListName.value = '';
-
+  if (!newListName.value.trim()) {
+    toast.error('List name is required');
+    return;
+  }
+  try {
+    await taskStore.addTodoList(newListName.value);
+    toast.success('Todo list added successfully!');
+    newListName.value = '';
+  } catch (error) {
+    toast.error('Failed to add todo list');
+  }
 };
 
 const handleUpdate = async (id: number) => {
-  await taskStore.updateTodoList(id, editName.value);
-  editingId.value = null;
+  try {
+    await taskStore.updateTodoList(id, editName.value);
+    toast.success('Todo list updated successfully!');
+    editingId.value = null;
+  } catch (error) {
+    toast.error('Failed to update todo list');
+  }
 };
 
 const handleDelete = async (id: number) => {
-  await taskStore.deleteTodoList(id);
-  await taskStore.fetchTasks();
+  try {
+    await taskStore.deleteTodoList(id);
+    toast.success('Todo list deleted successfully!');
+    await taskStore.fetchTasks();
+  } catch (error) {
+    toast.error('Failed to delete todo list');
+  }
 };
 
 const startEdit = (list: { id: number; name: string }) => {

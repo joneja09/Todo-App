@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
 import { getTasks, updateTask, deleteTask } from '../services/api';
 import TaskForm from './TaskForm';
 import './styles/TaskList.css';
@@ -29,13 +30,23 @@ const TaskList: React.FC<{ todoListId: number }> = ({ todoListId }) => {
   };
 
   const handleDelete = async (id: number) => {
-    await deleteTask(id);
-    fetchTasks();
+    try {
+      await deleteTask(id);
+      toast.success('Task deleted successfully!');
+      fetchTasks();
+    } catch (err) {
+      toast.error('Failed to delete task');
+    }
   };
 
   const handleToggle = async (task: Task) => {
-    await updateTask(task.id, task.title, task.description || '', !task.isCompleted, task.todoListId);
-    fetchTasks();
+    try {
+      await updateTask(task.id, task.title, task.description || '', !task.isCompleted, task.todoListId);
+      toast.success(task.isCompleted ? 'Task marked as incomplete' : 'Task completed!');
+      fetchTasks();
+    } catch (err) {
+      toast.error('Failed to update task');
+    }
   };
 
   const startEdit = (task: Task) => {
@@ -45,9 +56,14 @@ const TaskList: React.FC<{ todoListId: number }> = ({ todoListId }) => {
   };
 
   const saveEdit = async (id: number) => {
-    await updateTask(id, editTitle, editDesc, tasks.find(t => t.id === id)!.isCompleted, todoListId);
-    setEditingId(null);
-    fetchTasks();
+    try {
+      await updateTask(id, editTitle, editDesc, tasks.find(t => t.id === id)!.isCompleted, todoListId);
+      toast.success('Task updated successfully!');
+      setEditingId(null);
+      fetchTasks();
+    } catch (err) {
+      toast.error('Failed to update task');
+    }
   };
 
   const cancelEdit = () => {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { login, register } from '../services/api';
 import './styles/Login.css';
 
@@ -9,11 +10,23 @@ const Login: React.FC<{ onLogin: (token: string) => void }> = ({ onLogin }) => {
 
   const handleSubmit = async () => {
     try {
-      const token = isRegister ? await register(email, password) : await login(email, password);
+      const loadingToast = toast.loading(isRegister ? 'Creating account...' : 'Signing in...');
+      let token;
+
+      if (isRegister) {
+        await register(email, password);
+        token = await login(email, password); // Follow registration with login
+        toast.success('Account created and logged in successfully!');
+      } else {
+        token = await login(email, password);
+        toast.success('Welcome back!');
+      }
+
       localStorage.setItem('token', token);
+      toast.dismiss(loadingToast);
       onLogin(token);
     } catch (err) {
-      alert('Error: ' + (err as Error).message);
+      toast.error('Error: ' + (err as Error).message);
     }
   };
 

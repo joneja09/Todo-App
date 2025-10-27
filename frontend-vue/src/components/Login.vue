@@ -18,8 +18,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useToast } from 'vue-toastification';
 import { useAuthStore } from '../stores/auth';
 import './styles/Login.css';
+
+const toast = useToast();
 
 const authStore = useAuthStore();
 const email = ref('');
@@ -27,12 +30,23 @@ const password = ref('');
 const isLogin = ref(true);
 
 const handleSubmit = async () => {
-  if (isLogin.value) {
-    await authStore.login(email.value, password.value);
-  } else {
-    await authStore.register(email.value, password.value);
+  try {
+    const loadingText = isLogin.value ? 'Signing in...' : 'Creating account...';
+    const successText = isLogin.value ? 'Welcome back!' : 'Account created successfully!';
+    
+    toast.info(loadingText);
+    
+    if (isLogin.value) {
+      await authStore.login(email.value, password.value);
+    } else {
+      await authStore.register(email.value, password.value);
+    }
+    
+    toast.success(successText);
+    email.value = '';
+    password.value = '';
+  } catch (error) {
+    toast.error('Error: ' + (error as Error).message);
   }
-  email.value = '';
-  password.value = '';
 };
 </script>

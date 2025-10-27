@@ -11,19 +11,22 @@
     <template v-else>
       <TodoListSelector />
       <TaskList v-if="taskStore.selectedListId" />
-      <button @click="authStore.logout" className="logout-btn">Logout</button>
+      <button @click="handleLogout" className="logout-btn">Logout</button>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { useToast } from 'vue-toastification';
 import Login from "./components/Login.vue";
 import TaskList from "./components/TaskList.vue";
 import TodoListSelector from "./components/TodoListSelector.vue";
 import { useAuthStore } from "./stores/auth";
 import { useTaskStore } from "./stores/auth";
 import "./components/styles/App.css";
+
+const toast = useToast();
 
 const authStore = useAuthStore();
 const taskStore = useTaskStore();
@@ -37,5 +40,10 @@ const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
   localStorage.setItem("darkMode", isDarkMode.value.toString());
   document.body.classList.toggle("dark", isDarkMode.value);
+};
+
+const handleLogout = () => {
+  authStore.logout();
+  toast.success('Logged out successfully!');
 };
 </script>

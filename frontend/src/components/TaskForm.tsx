@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { addTask } from '../services/api';
 import './styles/TaskForm.css';
 
@@ -9,14 +10,18 @@ const TaskForm: React.FC<{ todoListId: number; onAdd: () => void }> = ({ todoLis
 
   const handleSubmit = async () => {
     if (!title.trim()) {
-      setError('Title is required');
+      toast.error('Title is required');
       return;
     }
-    setError('');
-    await addTask(title, description, todoListId);
-    setTitle('');
-    setDescription('');
-    onAdd();
+    try {
+      await addTask(title, description, todoListId);
+      toast.success('Task added successfully!');
+      setTitle('');
+      setDescription('');
+      onAdd();
+    } catch (err) {
+      toast.error('Failed to add task');
+    }
   };
 
   return (

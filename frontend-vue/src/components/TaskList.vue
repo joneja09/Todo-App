@@ -33,13 +33,13 @@
               {{ task.title }} {{ task.description && `- ${task.description}` }}
             </span>
             <div className="task-actions">
-              <button @click="taskStore.toggleTask(task.id, !task.isCompleted)" className="toggle-btn" :aria-label="task.isCompleted ? 'Mark as incomplete' : 'Mark as complete'">
+              <button @click="handleToggleTask(task)" className="toggle-btn" :aria-label="task.isCompleted ? 'Mark as incomplete' : 'Mark as complete'">
                 <i :class="task.isCompleted ? 'fas fa-check' : 'far fa-square'"></i>
               </button>
               <button @click="startEdit(task)" className="edit-btn" aria-label="Edit task">
                 <i className="fas fa-edit"></i>
               </button>
-              <button @click="taskStore.deleteTask(task.id)" className="delete-btn" aria-label="Delete task">
+              <button @click="handleDeleteTask(task.id)" className="delete-btn" aria-label="Delete task">
                 <i className="fas fa-trash"></i>
               </button>
             </div>
@@ -52,9 +52,12 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { useToast } from 'vue-toastification';
 import { useTaskStore } from '../stores/auth';
 import TaskForm from './TaskForm.vue';
 import './styles/TaskList.css';
+
+const toast = useToast();
 
 const taskStore = useTaskStore();
 const editingId = ref<number | null>(null);
@@ -71,16 +74,39 @@ const startEdit = (task: { id: number; title: string; description?: string }) =>
 };
 
 const saveEdit = async (id: number) => {
-  const task = taskStore.tasks.find(t => t.id === id);
-  if (task) {
-    await taskStore.updateTask(id, editTitle.value, editDesc.value, task.isCompleted);
+  try {
+    const task = taskStore.tasks.find(t => t.id === id);
+    if (task) {
+      await taskStore.updateTask(id, editTitle.value, editDesc.value, task.isCompleted);
+      toast.success('Task updated successfully!');
+    }
+    editingId.value = null;
+  } catch (error) {
+    toast.error('Failed to update task');
   }
-  editingId.value = null;
 };
 
 const cancelEdit = () => {
   editingId.value = null;
   editTitle.value = '';
   editDesc.value = '';
+};
+
+const handleToggleTask = async (task: { id: number; isCompleted: boolean }) => {
+  try {
+    await taskStore.toggleTask(task.id, !task.isCompleted);
+    toast.success(task.isCompleted ? 'Task marked as incomplete' : 'Task completed!');
+  } catch (error) {
+    toast.error('Failed to update task');
+  }
+};
+
+const handleDeleteTask = async (id: number) => {
+  try {
+    await taskStore.deleteTask(id);
+    toast.success('Task deleted successfully!');
+  } catch (error) {
+    toast.error('Failed to delete task');
+  }
 };
 </script>

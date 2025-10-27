@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import Login from './components/Login';
 import TaskList from './components/TaskList';
 import TodoListSelector from './components/TodoListSelector';
@@ -32,6 +33,12 @@ const App: React.FC = () => {
 
   return (
     <div className="app-container">
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+        }}
+      />
       {token ? (
         <>
           <div className="header">
@@ -51,6 +58,7 @@ const App: React.FC = () => {
             onClick={() => {
               localStorage.removeItem('token');
               setToken(null);
+              toast.success('Logged out successfully!');
             }}
             className="logout-btn"
           >

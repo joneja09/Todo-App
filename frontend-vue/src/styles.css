@@ -80,3 +80,193 @@ button {
   color: white;
   transition: all 0.2s ease;
 }
+
+/* Vue Toastification Custom Styles */
+.Vue-Toastification__toast {
+  background: var(--card-background) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--shadow), 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  padding: 12px 16px !important;
+  min-width: 300px !important;
+  max-width: 400px !important;
+}
+
+/* Success toast styling */
+.Vue-Toastification__toast--success {
+  border-left: 4px solid var(--secondary-color) !important;
+}
+
+.Vue-Toastification__toast--success .Vue-Toastification__icon {
+  color: var(--secondary-color) !important;
+}
+
+/* Error toast styling */
+.Vue-Toastification__toast--error {
+  border-left: 4px solid var(--error-color) !important;
+}
+
+.Vue-Toastification__toast--error .Vue-Toastification__icon {
+  color: var(--error-color) !important;
+}
+
+/* Warning toast styling */
+.Vue-Toastification__toast--warning {
+  border-left: 4px solid #f59e0b !important;
+}
+
+.Vue-Toastification__toast--warning .Vue-Toastification__icon {
+  color: #f59e0b !important;
+}
+
+/* Info toast styling */
+.Vue-Toastification__toast--info {
+  border-left: 4px solid var(--primary-color) !important;
+}
+
+.Vue-Toastification__toast--info .Vue-Toastification__icon {
+  color: var(--primary-color) !important;
+}
+
+/* Toast icon styling */
+.Vue-Toastification__icon {
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 8px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Toast content */
+.Vue-Toastification__toast-body {
+  flex: 1 !important;
+  line-height: 1.4 !important;
+}
+
+/* Toast close button */
+.Vue-Toastification__close-button {
+  background: transparent !important;
+  border: none !important;
+  color: var(--text-color) !important;
+  cursor: pointer !important;
+  padding: 2px !important;
+  margin-left: 8px !important;
+  opacity: 0.6 !important;
+  transition: opacity 0.2s ease !important;
+  font-size: 16px !important;
+  width: 20px !important;
+  height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.Vue-Toastification__close-button:hover {
+  opacity: 1 !important;
+}
+
+/* Toast container */
+.Vue-Toastification__container {
+  z-index: 9999 !important;
+}
+
+.Vue-Toastification__container.top-right {
+  top: 16px !important;
+  right: 16px !important;
+}
+
+/* Toast progress bar */
+.Vue-Toastification__progress-bar {
+  background: var(--primary-color) !important;
+  border-radius: 0 0 var(--border-radius) var(--border-radius) !important;
+}
+
+.Vue-Toastification__toast--success .Vue-Toastification__progress-bar {
+  background: var(--secondary-color) !important;
+}
+
+.Vue-Toastification__toast--error .Vue-Toastification__progress-bar {
+  background: var(--error-color) !important;
+}
+
+.Vue-Toastification__toast--warning .Vue-Toastification__progress-bar {
+  background: #f59e0b !important;
+}
+
+/* Dark mode specific adjustments */
+body.dark .Vue-Toastification__toast {
+  background: var(--card-background) !important;
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
+  box-shadow: var(--shadow), 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Mobile responsive toasts */
+@media (max-width: 640px) {
+  .Vue-Toastification__container.top-right {
+    top: 16px !important;
+    right: 8px !important;
+    left: 8px !important;
+  }
+  
+  .Vue-Toastification__toast {
+    min-width: unset !important;
+    max-width: unset !important;
+    width: 100% !important;
+    font-size: 0.875rem !important;
+    padding: 12px 14px !important;
+  }
+}
+
+/* Toast animations */
+.Vue-Toastification__bounce-enter-active {
+  animation: Vue-Toastification__bounceIn 0.75s;
+}
+
+.Vue-Toastification__bounce-leave-active {
+  animation: Vue-Toastification__bounceOut 0.75s;
+}
+
+@keyframes Vue-Toastification__bounceIn {
+  0%, 20%, 40%, 60%, 80% {
+    transform: translate3d(0, 0, 0);
+  }
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes Vue-Toastification__bounceOut {
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  50%, 55% {
+    opacity: 1;
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+}

@@ -18,7 +18,7 @@ export const login = async (email: string, password: string) => {
 
 export const register = async (email: string, password: string) => {
   const res = await api.post('/register', { email, password });
-  return res.data.accessToken;
+  return res.data;
 };
 
 export const getTodoLists = async () => {
