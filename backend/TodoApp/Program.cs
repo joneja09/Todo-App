@@ -39,8 +39,8 @@ builder.Services.AddAuthorizationBuilder()
 
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddScoped<ITodoListRepository, TodoListRepository>();
-builder.Services.AddScoped<TaskService>();
-builder.Services.AddScoped<TodoListService>();
+builder.Services.AddScoped<ITaskService, TaskService>();
+builder.Services.AddScoped<ITodoListService, TodoListService>();
 
 builder.Services.AddCors(options =>
 {
