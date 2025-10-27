@@ -1,6 +1,6 @@
 <template>
   <div className="todo-list-selector">
-    <h3>To-Do Lists</h3>
+    <h3>Lists</h3>
     <select
       v-model="taskStore.selectedListId"
       @change="taskStore.setSelectedListId(taskStore.selectedListId)"

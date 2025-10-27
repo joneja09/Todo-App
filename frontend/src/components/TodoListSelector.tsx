@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getTodoLists, addTodoList, updateTodoList, deleteTodoList } from '../services/api';
+import toast from 'react-hot-toast';
 import './styles/TodoListSelector.css';
 
 interface TodoList {
@@ -29,24 +30,42 @@ const TodoListSelector: React.FC<{ onSelect: (id: number) => void }> = ({ onSele
   };
 
   const handleAdd = async () => {
-    if (!newListName) return;
-    await addTodoList(newListName);
-    setNewListName('');
-    fetchLists();
+    if (!newListName) {
+      toast.error('List name is required');
+      return;
+    }
+    try {
+      await addTodoList(newListName);
+      toast.success('List added successfully!');
+      setNewListName('');
+      fetchLists();
+    } catch (error) {
+      toast.error('Failed to add list');
+    }
   };
 
   const handleUpdate = async (id: number) => {
-    await updateTodoList(id, editName);
-    setEditingId(null);
-    fetchLists();
+    try {
+      await updateTodoList(id, editName);
+      toast.success('List updated successfully!');
+      setEditingId(null);
+      fetchLists();
+    } catch (error) {
+      toast.error('Failed to update list');
+    }
   };
 
   const handleDelete = async (id: number) => {
-    await deleteTodoList(id);
-    fetchLists();
-    if (selectedId === id) {
-      setSelectedId(lists[0]?.id || null);
-      onSelect(lists[0]?.id || 0);
+    try {
+      await deleteTodoList(id);
+      toast.success('List deleted successfully!');
+      fetchLists();
+      if (selectedId === id) {
+        setSelectedId(lists[0]?.id || null);
+        onSelect(lists[0]?.id || 0);
+      }
+    } catch (error) {
+      toast.error('Failed to delete list');
     }
   };
 
