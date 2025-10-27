@@ -20,18 +20,36 @@ public class TodoListService(ITodoListRepository todoListRepository) : ITodoList
 {
     private readonly ITodoListRepository _todoListRepository = todoListRepository;
 
+    /// <summary>
+    /// Retrieves all to-do lists for a specific user.
+    /// </summary>
+    /// <param name="userId">The ID of the user whose lists to retrieve.</param>
+    /// <returns>A collection of <see cref="TodoListDto"/> objects.</returns>
     public async Task<IEnumerable<TodoListDto>> GetAllByUserIdAsync(int userId)
     {
         var lists = await _todoListRepository.GetAllByUserIdAsync(userId);
         return lists.Select(l => new TodoListDto { Id = l.Id, Name = l.Name });
     }
 
-    public async Task<TodoListDto?> GetByIdAsync(int id)
+    /// <summary>
+    /// Retrieves a to-do list by its ID for a specific user.
+    /// </summary>
+    /// <param name="id">The ID of the to-do list.</param>
+    /// <param name="userId">The ID of the user.</param>
+    /// <returns>The <see cref="TodoListDto"/> if found; otherwise, null.</returns>
+    public async Task<TodoListDto?> GetByIdAsync(int id, int userId)
     {
-        var list = await _todoListRepository.GetByIdAsync(id);
+        var list = await _todoListRepository.GetByIdAndUserIdAsync(id, userId);
         return list == null ? null : new TodoListDto { Id = list.Id, Name = list.Name };
     }
 
+    /// <summary>
+    /// Adds a new to-do list for a specific user.
+    /// </summary>
+    /// <param name="dto">The to-do list data transfer object.</param>
+    /// <param name="userId">The ID of the user.</param>
+    /// <returns>The created <see cref="TodoListDto"/>.</returns>
+    /// <exception cref="ArgumentException">Thrown if the name is missing.</exception>
     public async Task<TodoListDto> AddAsync(TodoListDto dto, int userId)
     {
         if (string.IsNullOrEmpty(dto.Name)) throw new ArgumentException("Name required");
@@ -42,9 +60,16 @@ public class TodoListService(ITodoListRepository todoListRepository) : ITodoList
         return new TodoListDto { Id = list.Id, Name = list.Name };
     }
 
-    public async Task<TodoListDto> UpdateAsync(TodoListDto dto)
+    /// <summary>
+    /// Updates an existing to-do list for a specific user.
+    /// </summary>
+    /// <param name="dto">The to-do list data transfer object.</param>
+    /// <param name="userId">The ID of the user.</param>
+    /// <returns>The updated <see cref="TodoListDto"/>.</returns>
+    /// <exception cref="KeyNotFoundException">Thrown if the list is not found.</exception>
+    public async Task<TodoListDto> UpdateAsync(TodoListDto dto, int userId)
     {
-        var list = await _todoListRepository.GetByIdAsync(dto.Id);
+        var list = await _todoListRepository.GetByIdAndUserIdAsync(dto.Id, userId);
         
         if (list == null) throw new KeyNotFoundException("List not found");
 
@@ -54,8 +79,18 @@ public class TodoListService(ITodoListRepository todoListRepository) : ITodoList
         return new TodoListDto { Id = list.Id, Name = list.Name };
     }
 
-    public async Task DeleteAsync(int id)
+    /// <summary>
+    /// Deletes a to-do list for a specific user.
+    /// </summary>
+    /// <param name="id">The ID of the to-do list.</param>
+    /// <param name="userId">The ID of the user.</param>
+    /// <exception cref="KeyNotFoundException">Thrown if the list is not found.</exception>
+    public async Task DeleteAsync(int id, int userId)
     {
+        var list = await _todoListRepository.GetByIdAndUserIdAsync(id, userId);
+        
+        if (list == null) throw new KeyNotFoundException("List not found");
+        
         await _todoListRepository.DeleteAsync(id);
     }
 }

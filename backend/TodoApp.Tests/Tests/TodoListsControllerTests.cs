@@ -40,25 +40,25 @@ public class TodoListsControllerTests
     [Fact]
     public async Task Get_ReturnsOk_WhenListExists()
     {
-        _mockService.Setup(s => s.GetByIdAsync(1)).ReturnsAsync(new TodoListDto { Id = 1, Name = "Test List" });
+    _mockService.Setup(s => s.GetByIdAsync(1, 1)).ReturnsAsync(new TodoListDto { Id = 1, Name = "Test List" });
 
-        var result = await _controller.Get(1);
+    var result = await _controller.Get(1);
 
-        Assert.True(result.Success);
-        Assert.NotNull(result.Data);
-        Assert.Equal(1, result.Data!.Id);
+    Assert.True(result.Success);
+    Assert.NotNull(result.Data);
+    Assert.Equal(1, result.Data!.Id);
     }
 
     [Fact]
     public async Task Get_ReturnsError_WhenListDoesNotExist()
     {
-        _mockService.Setup(s => s.GetByIdAsync(99)).ReturnsAsync((TodoListDto?)null);
+    _mockService.Setup(s => s.GetByIdAsync(99, 1)).ReturnsAsync((TodoListDto?)null);
 
-        var result = await _controller.Get(99);
+    var result = await _controller.Get(99);
 
-        Assert.False(result.Success);
-        Assert.Null(result.Data);
-        Assert.NotNull(result.Message);
+    Assert.False(result.Success);
+    Assert.Null(result.Data);
+    Assert.NotNull(result.Message);
     }
 
     [Fact]
@@ -77,24 +77,24 @@ public class TodoListsControllerTests
     [Fact]
     public async Task Put_ReturnsOk_WhenListUpdated()
     {
-        var dto = new TodoListDto { Id = 1, Name = "Updated List" };
-        _mockService.Setup(s => s.UpdateAsync(dto)).ReturnsAsync(new TodoListDto { Id = 1, Name = "Updated List" });
+    var dto = new TodoListDto { Id = 1, Name = "Updated List" };
+    _mockService.Setup(s => s.UpdateAsync(dto, 1)).ReturnsAsync(new TodoListDto { Id = 1, Name = "Updated List" });
 
-        var result = await _controller.Put(1, dto);
+    var result = await _controller.Put(1, dto);
 
-        Assert.True(result.Success);
-        Assert.NotNull(result.Data);
-        Assert.Equal("Updated List", result.Data!.Name);
+    Assert.True(result.Success);
+    Assert.NotNull(result.Data);
+    Assert.Equal("Updated List", result.Data!.Name);
     }
 
     [Fact]
     public async Task Delete_ReturnsOk_WhenListDeleted()
     {
-        _mockService.Setup(s => s.DeleteAsync(1)).Returns(Task.CompletedTask);
+    _mockService.Setup(s => s.DeleteAsync(1, 1)).Returns(Task.CompletedTask);
 
-        var result = await _controller.Delete(1);
+    var result = await _controller.Delete(1);
 
-        Assert.True(result.Success);
-        Assert.Null(result.Data);
+    Assert.True(result.Success);
+    Assert.Null(result.Data);
     }
 }

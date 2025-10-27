@@ -14,6 +14,7 @@ public interface ITodoListRepository
 {
     Task<IEnumerable<TodoList>> GetAllByUserIdAsync(int userId);
     Task<TodoList?> GetByIdAsync(int id);
+    Task<TodoList?> GetByIdAndUserIdAsync(int id, int userId);
     Task AddAsync(TodoList list);
     Task UpdateAsync(TodoList list);
     Task DeleteAsync(int id);

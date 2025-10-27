@@ -45,23 +45,23 @@ public class TodoListServiceTests
     [Fact]
     public async Task GetByIdAsync_ReturnsList_WhenFound()
     {
-        var list = new TodoList { Id = 2, Name = "Sample", UserId = 1 };
-        _mockRepo.Setup(r => r.GetByIdAsync(2)).ReturnsAsync(list);
+    var list = new TodoList { Id = 2, Name = "Sample", UserId = 1 };
+    _mockRepo.Setup(r => r.GetByIdAndUserIdAsync(2, 1)).ReturnsAsync(list);
 
-        var result = await _service.GetByIdAsync(2);
+    var result = await _service.GetByIdAsync(2, 1);
 
-        Assert.NotNull(result);
-        Assert.Equal("Sample", result.Name);
+    Assert.NotNull(result);
+    Assert.Equal("Sample", result.Name);
     }
 
     [Fact]
     public async Task GetByIdAsync_ReturnsNull_WhenNotFound()
     {
-        _mockRepo.Setup(r => r.GetByIdAsync(99)).ReturnsAsync((TodoList?)null);
+    _mockRepo.Setup(r => r.GetByIdAndUserIdAsync(99, 1)).ReturnsAsync((TodoList?)null);
 
-        var result = await _service.GetByIdAsync(99);
+    var result = await _service.GetByIdAsync(99, 1);
 
-        Assert.Null(result);
+    Assert.Null(result);
     }
 
     [Fact]
@@ -78,23 +78,24 @@ public class TodoListServiceTests
     [Fact]
     public async Task UpdateAsync_UpdatesListSuccessfully()
     {
-        var dto = new TodoListDto { Id = 1, Name = "Updated" };
-        var list = new TodoList { Id = 1, Name = "Old", UserId = 1 };
-        _mockRepo.Setup(r => r.GetByIdAsync(1)).ReturnsAsync(list);
-        _mockRepo.Setup(r => r.UpdateAsync(It.IsAny<TodoList>())).Returns(Task.CompletedTask);
+    var dto = new TodoListDto { Id = 1, Name = "Updated" };
+    var list = new TodoList { Id = 1, Name = "Old", UserId = 1 };
+    _mockRepo.Setup(r => r.GetByIdAndUserIdAsync(1, 1)).ReturnsAsync(list);
+    _mockRepo.Setup(r => r.UpdateAsync(It.IsAny<TodoList>())).Returns(Task.CompletedTask);
 
-        var result = await _service.UpdateAsync(dto);
+    var result = await _service.UpdateAsync(dto, 1);
 
-        Assert.Equal("Updated", result.Name);
+    Assert.Equal("Updated", result.Name);
     }
 
     [Fact]
     public async Task DeleteAsync_DeletesListSuccessfully()
     {
-        _mockRepo.Setup(r => r.DeleteAsync(1)).Returns(Task.CompletedTask);
+    _mockRepo.Setup(r => r.GetByIdAndUserIdAsync(1, 1)).ReturnsAsync(new TodoList { Id = 1, Name = "Test", UserId = 1 });
+    _mockRepo.Setup(r => r.DeleteAsync(1)).Returns(Task.CompletedTask);
 
-        await _service.DeleteAsync(1);
+    await _service.DeleteAsync(1, 1);
 
-        _mockRepo.Verify(r => r.DeleteAsync(1), Times.Once);
+    _mockRepo.Verify(r => r.DeleteAsync(1), Times.Once);
     }
 }

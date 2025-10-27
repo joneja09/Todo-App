@@ -12,10 +12,10 @@ namespace TodoApp.Interfaces
     /// the underlying data storage and retrieval mechanisms.</remarks>
     public interface ITaskService
     {
-        Task<TaskDto> AddAsync(TaskDto dto);
-        Task DeleteAsync(int id);
-        Task<IEnumerable<TaskDto>> GetAllByListIdAsync(int todoListId);
-        Task<TaskDto?> GetByIdAsync(int id);
-        Task<TaskDto> UpdateAsync(TaskDto dto);
+        Task<TaskDto> AddAsync(TaskDto dto, int userId);
+        Task DeleteAsync(int id, int userId);
+        Task<IEnumerable<TaskDto>> GetAllByListIdAsync(int todoListId, int userId);
+        Task<TaskDto?> GetByIdAsync(int id, int userId);
+        Task<TaskDto> UpdateAsync(TaskDto dto, int userId);
     }
 }

@@ -13,7 +13,9 @@ namespace TodoApp.Interfaces;
 public interface ITaskRepository
 {
     Task<IEnumerable<TaskItem>> GetAllByListIdAsync(int todoListId);
+    Task<IEnumerable<TaskItem>> GetAllByListIdAndUserIdAsync(int todoListId, int userId);
     Task<TaskItem?> GetByIdAsync(int id);
+    Task<TaskItem?> GetByIdAndUserIdAsync(int id, int userId);
     Task AddAsync(TaskItem task);
     Task UpdateAsync(TaskItem task);
     Task DeleteAsync(int id);

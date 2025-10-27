@@ -142,6 +142,8 @@ This architecture ensures the application is maintainable, testable, and ready t
 - **ASP.NET Core Identity**: Built-in user management with customized integer primary keys
 - **Bearer Token Authentication**: JWT-based stateless authentication for SPA compatibility
 - **Authorization Attributes**: Controller-level authorization with policy-based access control
+- **Resource-Level Authorization**: All TodoList and Task operations validate user ownership to prevent unauthorized access
+- **Data Isolation**: Users can only access their own TodoLists and Tasks through comprehensive ownership validation
 
 ## Frontend Architecture
 
