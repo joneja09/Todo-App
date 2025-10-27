@@ -36,10 +36,9 @@ export const useAuthStore = defineStore('auth', {
       this.token = token;
     },
     async register(email: string, password: string) {
-      const res = await api.post('/register', { email, password });
-      const token = res.data.accessToken;
-      localStorage.setItem('token', token);
-      this.token = token;
+      await api.post('/register', { email, password });
+      // After successful registration, immediately log in
+      await this.login(email, password);
     },
     logout() {
       localStorage.removeItem('token');
