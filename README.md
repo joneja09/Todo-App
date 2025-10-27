@@ -16,8 +16,6 @@ A task management application with a .NET 9 backend (single project, Microsoft I
 - Node.js 20+
 - Yarn (install globally: `npm install -g yarn`)
 - Git
-- Azure account (free tier) for backend
-- Vercel account for frontends
 
 ## Setup Instructions
 
@@ -55,11 +53,13 @@ A task management application with a .NET 9 backend (single project, Microsoft I
   - Add GitHub secrets: `AZURE_WEBAPP_NAME`, `AZURE_PUBLISH_PROFILE` (from Azure > App Service > Deployment Center).
   - Update `appsettings.json` `DefaultConnection` to a server-based SQLite path or use Azure SQL/PostgreSQL for production.
   - Push to `main` triggers deploy via `.github/workflows/ci.yml`.
+  - _Note_: Can be found at: `https://joneja09-todo-bcgwamedc9cvbyg8.centralus-01.azurewebsites.net`
 - **Frontend (Vercel)**:
   - Import `frontend` and `frontend-vue` to Vercel as separate projects.
   - Add GitHub secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID_REACT`, `VERCEL_PROJECT_ID_VUE`.
   - Set Vercel env vars: `REACT_APP_API_URL` and `VITE_API_URL` to Azure backend URL (e.g., `https://your-app.azurewebsites.net/api`).
   - Push to `main` deploys frontends.
+  - _Note_: Can be found at: (React)`https://joneja09-todo-app.vercel.app/` and (Vue)`https://joneja09-todo-app-vue.vercel.app/`
 
 ## Usage
 
