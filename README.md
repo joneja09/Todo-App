@@ -81,7 +81,7 @@ A task management application with a .NET 9 backend (single project, Microsoft I
 ## Future Improvements
 - Utilize refresh tokens to provide a better user experience.
 - Utilize Azure SQL to have a persisted reliable database.
-- Add integration/E2E tests (Playwright/Cypress) ton ensure quality frontend.
+- Add integration/E2E tests (Playwright/Cypress) to ensure quality frontend.
 - Implement task sharing or team capability, notifications (WebSockets).
 - Add Redis Caching/Output Caching for high scale.
 - Containerize with Docker for consistent contained deployment.
@@ -163,6 +163,7 @@ Both frontends implement the same feature set with different frameworks and patt
 
 **Shared Features:**
 - Bearer token authentication with automatic header injection
+- Automatic redirect to login on 401 responses via Axios interceptors
 - Dark/light theme toggle with localStorage persistence
 - Responsive design with FontAwesome icons
 - Complete CRUD operations for TodoLists and Tasks

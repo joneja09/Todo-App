@@ -11,6 +11,19 @@ api.interceptors.request.use(config => {
   return config;
 });
 
+// Response interceptor to handle token expiration
+api.interceptors.response.use(
+  response => response,
+  error => {
+    if (error.response?.status === 401) {
+      // Token expired or invalid, clear storage and reload to show login
+      localStorage.removeItem('token');
+      window.location.reload();
+    }
+    return Promise.reject(error);
+  }
+);
+
 export const useAuthStore = defineStore('auth', {
   state: () => ({
     token: localStorage.getItem('token') || null,
