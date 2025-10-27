@@ -73,14 +73,13 @@ A task management application with a .NET 9 backend (single project, Microsoft I
 ## Assumptions and Trade-offs
 
 - **Single Project**: Backend uses a single .NET project for simplicity, maintaining folder structure for organization.
-- **Microsoft Identity**: Uses ASP.NET Core Identity for robust user management, with JWT for frontend compatibility.
+- **Microsoft Identity**: Uses ASP.NET Core Identity for robust user management, with Bearer for frontend compatibility.
 - **Data Model**: Users own multiple `TodoList`s, each containing multiple `TaskItem`s, stored in SQLite for easy setup.
-- **Auth**: JWT-based, no refresh tokens (add for production).
+- **Auth**: Bearer-based, refresh tokens usage not implemented.
 - **DB**: SQLite for simplicity; consider PostgreSQL or Azure SQL for scale.
 - **Azure Free Tier**: Limited to 60 CPU min/day, may sleep after inactivity.
 - **Vercel**: Unlimited bandwidth, auto-HTTPS.
 - **Tests**: Basic xUnit coverage; aim for 80%+ in production.
-- **CORS**: Allows Vercel domains and localhost for development.
 
 ## Future Improvements
 
