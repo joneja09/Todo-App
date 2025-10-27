@@ -11,6 +11,7 @@ const TaskForm: React.FC<{ todoListId: number; onAdd: () => void }> = ({ todoLis
   const handleSubmit = async () => {
     if (!title.trim()) {
       toast.error('Title is required');
+      setError('Title is required');
       return;
     }
     try {
