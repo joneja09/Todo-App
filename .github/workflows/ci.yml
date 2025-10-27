@@ -84,65 +84,65 @@ jobs:
           package: ./output
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 
-  deploy-frontend-react-vercel:
-    needs: [build-frontend-react]
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      - name: Install Yarn
-        run: npm install -g yarn
-      - name: Install dependencies
-        working-directory: frontend
-        run: yarn install --frozen-lockfile
-      - name: Build
-        working-directory: frontend
-        run: yarn build
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_REACT }}
-          working-directory: frontend
-          vercel-args: "--prod"
+#  deploy-frontend-react-vercel:
+#    needs: [build-frontend-react]
+#    if: github.ref == 'refs/heads/main'
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
+#      - name: Setup Node
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: "20"
+#      - name: Install Yarn
+#        run: npm install -g yarn
+#      - name: Install dependencies
+#        working-directory: frontend
+#        run: yarn install --frozen-lockfile
+#      - name: Build
+#        working-directory: frontend
+#        run: yarn build
+#      - name: Deploy to Vercel
+#        uses: amondnet/vercel-action@v25
+#        with:
+#          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+#          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+#          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_REACT }}
+#          working-directory: frontend
+#          vercel-args: "--prod"
 
-  deploy-frontend-vue-vercel:
-    needs: [build-frontend-vue]
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      - name: Install Yarn
-        run: npm install -g yarn
-      - name: Install dependencies
-        working-directory: frontend-vue
-        run: yarn install --frozen-lockfile
-      - name: Build
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      - name: Install Yarn
-        run: npm install -g yarn
-      - name: Install dependencies
-        working-directory: frontend-vue
-        run: yarn install --frozen-lockfile
-      - name: Build
-        working-directory: frontend-vue
-        run: yarn build
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_VUE }}
-          working-directory: frontend-vue
-          vercel-args: "--prod"
+#  deploy-frontend-vue-vercel:
+#    needs: [build-frontend-vue]
+#    if: github.ref == 'refs/heads/main'
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
+#      - name: Setup Node
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: "20"
+#      - name: Install Yarn
+#        run: npm install -g yarn
+#      - name: Install dependencies
+#        working-directory: frontend-vue
+#        run: yarn install --frozen-lockfile
+#      - name: Build
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: "20"
+#      - name: Install Yarn
+#        run: npm install -g yarn
+#      - name: Install dependencies
+#        working-directory: frontend-vue
+#        run: yarn install --frozen-lockfile
+#      - name: Build
+#        working-directory: frontend-vue
+#        run: yarn build
+#      - name: Deploy to Vercel
+#        uses: amondnet/vercel-action@v25
+#        with:
+#          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+#          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+#          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_VUE }}
+#          working-directory: frontend-vue
+#          vercel-args: "--prod"
