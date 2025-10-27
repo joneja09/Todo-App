@@ -38,31 +38,31 @@ public class TasksController(ITaskService taskService) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ApiResponse<TaskDto?>> Post([FromBody] TaskDto dto)
+    public async Task<ApiResponse<TaskDto>> Post([FromBody] TaskDto dto)
     {
         try
         {
             var task = await _taskService.AddAsync(dto);
-            return ApiResponse<TaskDto?>.Ok(task);
+            return ApiResponse<TaskDto>.Ok(task);
         }
         catch (Exception ex)
         {
-            return ApiResponse<TaskDto?>.Error(ex.Message);
+            return ApiResponse<TaskDto>.Error(ex.Message);
         }
     }
 
     [HttpPut("{id}")]
-    public async Task<ApiResponse<TaskDto?>> Put(int id, [FromBody] TaskDto dto)
+    public async Task<ApiResponse<TaskDto>> Put(int id, [FromBody] TaskDto dto)
     {
         try
         {
             dto.Id = id;
             var task = await _taskService.UpdateAsync(dto);
-            return ApiResponse<TaskDto?>.Ok(task);
+            return ApiResponse<TaskDto>.Ok(task);
         }
         catch (Exception ex)
         {
-            return ApiResponse<TaskDto?>.Error(ex.Message);
+            return ApiResponse<TaskDto>.Error(ex.Message);
         }
     }
 

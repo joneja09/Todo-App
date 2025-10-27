@@ -56,32 +56,32 @@ public class TodoListsController(ITodoListService todoListService) : ControllerB
     /// otherwise, an error response with the exception message.</returns>
     [HttpPost]
     [Route("")]
-    public async Task<ApiResponse<TodoListDto?>> Post([FromBody] TodoListDto dto)
+    public async Task<ApiResponse<TodoListDto>> Post([FromBody] TodoListDto dto)
     {
         try
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
             var list = await _todoListService.AddAsync(dto, userId);
-            return ApiResponse<TodoListDto?>.Ok(list);
+            return ApiResponse<TodoListDto>.Ok(list);
         }
         catch (Exception ex)
         {
-            return ApiResponse<TodoListDto?>.Error(ex.Message);
+            return ApiResponse<TodoListDto>.Error(ex.Message);
         }
     }
 
     [HttpPut("{id}")]
-    public async Task<ApiResponse<TodoListDto?>> Put(int id, [FromBody] TodoListDto dto)
+    public async Task<ApiResponse<TodoListDto>> Put(int id, [FromBody] TodoListDto dto)
     {
         try
         {
             dto.Id = id;
             var list = await _todoListService.UpdateAsync(dto);
-            return ApiResponse<TodoListDto?>.Ok(list);
+            return ApiResponse<TodoListDto>.Ok(list);
         }
         catch (Exception ex)
         {
-            return ApiResponse<TodoListDto?>.Error(ex.Message);
+            return ApiResponse<TodoListDto>.Error(ex.Message);
         }
     }
 
